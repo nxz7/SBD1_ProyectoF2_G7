@@ -1,4 +1,4 @@
-# -SBD1_ProyectoF2_G7
+# SBD1_ProyectoF2_G7
 | NOMBRE  | CARNET  |
 |--------|------|
 | Jose Manuel Lacán Chavajay  | 201900087  |
