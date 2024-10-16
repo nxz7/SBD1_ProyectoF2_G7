@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E81349A0-1C5F-B668-29EC-E4D4FC7CFFE4" name="PuertaEmbarque">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 22:35:31 UTC</createdTime>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_puerta" id="3BA2C9D6-9AFE-BFD2-EBBA-34ED1C858DBD">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 22:35:37 UTC</createdTime>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="puerta" id="56769812-69C7-C659-3DFF-0A7A68682BCE">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 22:35:47 UTC</createdTime>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_terminal" id="72C0AF3F-54C5-4197-BEB4-FE0FFF0859F2">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 23:38:28 UTC</createdTime>
+<generatorID>08CF4CA2-A522-52B8-5A7B-F798AB09F556</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<referedAttribute>73021F98-9E17-9BD1-4B70-4DD3F5C0EF30</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="D038F1DE-95EB-857A-4950-88C9DFE4A403" name="PuertaEmbarque PK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 22:35:43 UTC</createdTime>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>3BA2C9D6-9AFE-BFD2-EBBA-34ED1C858DBD</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

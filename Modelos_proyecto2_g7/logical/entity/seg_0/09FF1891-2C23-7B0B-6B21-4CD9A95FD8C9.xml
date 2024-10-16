@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="09FF1891-2C23-7B0B-6B21-4CD9A95FD8C9" name="Ruta">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 22:43:09 UTC</createdTime>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_ruta" id="F64610A3-3C00-7673-34C9-52B6EB0F683B">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 22:43:23 UTC</createdTime>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tiempo_de_vuelo" id="17576F79-DD9F-3620-A1D3-9FC40FE96562">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 22:43:32 UTC</createdTime>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="distancia" id="32D57924-BB73-68CF-141C-FE4EB91D8694">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 22:43:52 UTC</createdTime>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="origen" id="F8E8EF51-3DEE-8DD2-0031-A9CC013889FF">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 23:35:08 UTC</createdTime>
+<generatorID>EBB0FC8F-FA30-28EA-45F5-B6AAF138AC17</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<referedAttribute>1F0E90CA-4646-287B-91AB-C30B07F95EBC</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="destino" id="B855AAF9-0A3D-FFED-79CA-9A05AB75CF50">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 23:35:19 UTC</createdTime>
+<generatorID>E0041241-85A4-CA96-C7B1-E0BEA172DF53</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<referedAttribute>1F0E90CA-4646-287B-91AB-C30B07F95EBC</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B6C3F28F-6410-6508-D3EB-795DDFC45B8C" name="Ruta PK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 22:43:31 UTC</createdTime>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>F64610A3-3C00-7673-34C9-52B6EB0F683B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

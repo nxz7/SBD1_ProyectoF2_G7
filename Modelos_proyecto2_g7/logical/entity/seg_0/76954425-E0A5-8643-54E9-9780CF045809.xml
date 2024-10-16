@@ -1,0 +1,154 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="76954425-E0A5-8643-54E9-9780CF045809" name="Boleto">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 23:04:15 UTC</createdTime>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_boleto" id="B5938AF6-B6C3-4C01-5A3F-C3FE4FF4742F">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 23:04:19 UTC</createdTime>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="estado" id="FCE31AFF-89AA-A8CB-EAEE-54CEA56D4325">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 23:04:26 UTC</createdTime>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha" id="83C75939-60DB-0185-68E6-4F1FAA103799">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 23:04:39 UTC</createdTime>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_vuelo" id="99DCCFC0-70BC-3A86-6520-377917A36102">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 23:39:34 UTC</createdTime>
+<generatorID>27696434-29FF-3AF1-28F9-ABC4D4FF0D3D</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<referedAttribute>5927B1EF-A45A-E821-AB6B-829846FEB24D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="numero_pasaporte" id="9D1B7508-37CE-6F61-559E-3AFD223BCB39">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 23:39:58 UTC</createdTime>
+<generatorID>67E2B940-000C-E43A-A951-4670A94AA785</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<referedAttribute>35D463CD-B8B5-B8C3-2620-39EE30E9C6EA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_pago" id="6021B8F3-E56F-5C5F-C71C-C91C13CF254C">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 23:41:01 UTC</createdTime>
+<generatorID>B52DC3A6-13BA-7AA3-AE93-4081566AE461</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<referedAttribute>208A8B2E-0AF9-148B-2F45-D00BABAC1F4C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_reserva" id="9792B96B-301F-6B73-A65D-860828349342">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 23:41:08 UTC</createdTime>
+<generatorID>DAFB43C0-2B33-ED8D-A400-825A47F7C8D6</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<referedAttribute>E16DD8C4-E671-B43E-5CB4-2C05B6C4EF04</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_asiento" id="247118EC-B83B-FFF5-3EDF-98BAE346217E">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 23:41:34 UTC</createdTime>
+<generatorID>B84BB21F-187A-7F79-7F7C-650F58BEC6A8</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<referedAttribute>85061C4F-DF47-DE29-2DDB-6F2F0C5D4BB9</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_empleado" id="D438DCB1-F24A-20BC-2327-099FBE3C4C56">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 23:41:48 UTC</createdTime>
+<generatorID>C5233D2F-E000-1EEF-C097-1AC9DCC89536</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<referedAttribute>C50E5E23-9C3B-5DDA-6ED1-3DCE1DC1DBFE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="E104B2FA-A5D0-B0DD-E0E8-51C7A93832C1" name="Boleto PK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 23:04:25 UTC</createdTime>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>B5938AF6-B6C3-4C01-5A3F-C3FE4FF4742F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

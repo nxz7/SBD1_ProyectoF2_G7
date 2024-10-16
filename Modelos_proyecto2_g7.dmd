@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Modelos_proyecto2_g7" id="700F2C7A-E424-1DCD-232A-514A75E8303D" version="3.5">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 22:19:22 UTC</createdTime>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>700F2C7A-E424-1DCD-232A-514A75E8303D</designId>
+</OSDM_Design>
