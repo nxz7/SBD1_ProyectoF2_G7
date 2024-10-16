@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8C0CC046-07EA-25A8-BC21-EAC93374DD3E" name="Tarifa">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>B837A28C-7389-9E06-A43F-B02E1CC68277</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_tarifa" id="F70CAB55-2462-B1DC-D53F-2237133E7AD1">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>DBB8647D-5627-3BBE-CF6E-CFB1689BFEA4</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="clase" id="70EA17F3-2E00-A227-119C-1CA886FE590E">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>8DF009E3-B8A8-4B9A-D5D7-F8E059F6145E</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="precio" id="49CBE079-4E28-D11F-A1F0-F14A3AECAABC">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>E5205428-C6E8-8747-E683-E32BF31ADF10</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Vuelo_id_vuelo" id="B73BF073-E941-0F04-1629-A5302ECFF12B">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>5021A0D5-9E9C-5FB4-EBA8-B6FD2FE06908</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F1342B13-C6B0-C817-DBBC-3F4D33CF26E3" referredColumn="C81DFBD9-A45F-5D47-18DD-E0C61271FDA0"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B19B7BAC-CCB9-1E11-FCD4-2C474C0A9626" name="Tarifa_PK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>9FBB49F3-DAC5-D77A-E1EA-A7239ED26776</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F70CAB55-2462-B1DC-D53F-2237133E7AD1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="68DC2670-2F83-5957-0FC5-3F993B5C5D5C" name="Tarifa_Vuelo_FK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>1CB0AB54-A05C-CE77-3D85-5084EC8D8C4B</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B73BF073-E941-0F04-1629-A5302ECFF12B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

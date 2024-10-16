@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1044316D-9557-A0D4-5200-51911D36AE81" name="Cargo">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>EE55EBE3-7531-3ADA-1258-ADDF47951AD2</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_cargo" id="7BFD7D96-6FF8-DCBF-5F4E-75D526747BE6">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>C4DE5B5B-D850-7750-EC0F-7867753A8FFB</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="BA21B424-BAE5-94E2-F63A-40E601544A50">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>F8EBA938-02CF-2CAB-8040-B84F27DA1C7D</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="salario_base" id="2CE31E39-13C1-D014-E481-88F450DCBB91">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>FD734C4E-D594-C2F4-6785-9CC2F9FC24F1</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BD2A4474-24C6-DBD0-CA49-552E1DB83301" name="Cargo_PK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>B8C23B90-C653-C601-1EFF-D64B8CEBFE77</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7BFD7D96-6FF8-DCBF-5F4E-75D526747BE6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

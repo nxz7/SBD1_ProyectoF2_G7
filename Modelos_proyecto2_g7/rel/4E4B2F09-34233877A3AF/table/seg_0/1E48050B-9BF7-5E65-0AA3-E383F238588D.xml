@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1E48050B-9BF7-5E65-0AA3-E383F238588D" name="Historial">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>2019C6B0-81E3-CAA4-BB93-99C3C9C57650</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_transaccion" id="D045B400-2D9D-B56A-D5D8-B6BC6EC19752">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>A82BB9BB-43BA-CDDC-DACE-709F56D58039</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha" id="035685C9-7FE2-5764-F0C8-538A3A25D085">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>8FBE64FF-035C-6795-9EFF-25B693B7C71C</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Descripcion" id="95AC44D8-47D5-2ECB-0672-BD6E436F1A8B">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>D6247882-BCB6-72AA-CA66-C569E4D1D1DD</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tipo" id="84DAFA20-9C40-8B48-F6F4-9C948622AF02">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>CFF0A6E7-D797-CAE2-7EB7-96EE33AA98B9</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CCE059A6-714D-6124-9B43-BCC0A32F8355" name="Historial_PK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>F49FF577-D791-5599-0CB4-4C7541990030</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D045B400-2D9D-B56A-D5D8-B6BC6EC19752"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

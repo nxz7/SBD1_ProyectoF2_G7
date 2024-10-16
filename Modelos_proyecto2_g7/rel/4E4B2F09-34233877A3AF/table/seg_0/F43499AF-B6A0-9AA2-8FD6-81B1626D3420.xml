@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F43499AF-B6A0-9AA2-8FD6-81B1626D3420" name="Aerolinea">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>F5C191FF-002A-1273-7979-F83B6DF8021C</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_aerolinea" id="4DB2A924-1BC1-3855-0BD9-008840B71732">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>19DD9ACE-461F-D1E4-EC85-D5103D5A5428</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="codigo_oaci" id="EF5CB75B-FBB2-9BA0-4C4B-E254E4304265">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>8107A2CF-140A-DBF4-D4BC-FA930192FFD1</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="8F4FD1B1-B563-0B67-854B-095AE65B7332">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>185A00B7-74F3-4AF2-6B22-2F19EB379A9D</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Ciudad_id_ciudad" id="1E47DF32-734A-BE2B-9202-140CFDEEC58C">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>AE452949-DAEF-BDDC-34DC-35422193774C</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F9B04C43-FD4B-FBD1-BEB7-089533168216" referredColumn="8618563F-102B-3C2E-A18F-B41246652C54"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2DF928A7-DF6D-4567-AE92-E6800A9D2236" name="Aerolinea_PK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>296DDA7E-5A31-C289-5857-FB80B7D230BF</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4DB2A924-1BC1-3855-0BD9-008840B71732"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DD0DDBB2-F63F-87CA-279F-A91162D75CC2" name="Aerolinea_Ciudad_FK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>9AA548DD-63E0-86B2-1B57-4A1FC0CB6A1D</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1E47DF32-734A-BE2B-9202-140CFDEEC58C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

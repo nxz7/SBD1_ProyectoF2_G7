@@ -1,0 +1,216 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="79AFA4C9-3D1C-49F4-5FAB-0650B189C8A1" name="Boleto">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>76954425-E0A5-8643-54E9-9780CF045809</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_boleto" id="25465C9A-BC09-0911-1122-CA912C106BC5">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>B5938AF6-B6C3-4C01-5A3F-C3FE4FF4742F</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estado" id="D05CE5B6-368E-8EA8-9747-8C2D5F90E174">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>FCE31AFF-89AA-A8CB-EAEE-54CEA56D4325</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha" id="209B2BC3-717E-F24A-E09B-85B27C594398">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>83C75939-60DB-0185-68E6-4F1FAA103799</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Vuelo_id_vuelo" id="56DD9E80-363B-EF92-2538-BE97DB8740D0">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>99DCCFC0-70BC-3A86-6520-377917A36102</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1A836D9D-8073-35DC-AFC6-8C69BD40D342" referredColumn="C81DFBD9-A45F-5D47-18DD-E0C61271FDA0"/>
+</associations>
+</Column>
+<Column name="Pasajero_numero_pasaporte" id="3AB63FCD-6182-6012-DB50-35BE677C525B">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>9D1B7508-37CE-6F61-559E-3AFD223BCB39</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="61FC849E-C269-65F7-710F-E9B2032C5E2A" referredColumn="01048508-EFA8-12CF-CC88-2F7DBD019E7E"/>
+</associations>
+</Column>
+<Column name="Pago_id_pago" id="A7CA7A40-2683-A2DE-18E8-565161F5ACAC">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>6021B8F3-E56F-5C5F-C71C-C91C13CF254C</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F5E41B4A-A674-1D26-E222-0D8B045AE149" referredColumn="385329F8-FED9-4497-D3F1-92C0649161A0"/>
+</associations>
+</Column>
+<Column name="Reserva_id_reserva" id="E1BF1B22-4737-4606-7C11-AED1A8D34846">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>9792B96B-301F-6B73-A65D-860828349342</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0F2BC556-D078-D231-E869-6391E10FD174" referredColumn="008BAEF2-D2B6-F11C-AD72-33A9DEDFD42A"/>
+</associations>
+</Column>
+<Column name="Asientos_id_asiento" id="B509CA05-1C7C-1060-4301-5BCCB94E748C">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>247118EC-B83B-FFF5-3EDF-98BAE346217E</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="57E86790-64A4-375C-2953-D35ED276598D" referredColumn="DC33E902-4817-D7E4-65E0-7A945F990D34"/>
+</associations>
+</Column>
+<Column name="Empleados_id_empleado" id="749CF73F-9220-1E0C-43AC-7E0A3C6D258A">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>D438DCB1-F24A-20BC-2327-099FBE3C4C56</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="54B69C2F-996E-4C0F-E348-32AE3B72F69F" referredColumn="EFD3C0E6-F3B6-0C9C-D6DE-1CC3AE9F1517"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F5AB624F-8AB8-7D7A-236A-C8278BD2F64D" name="Boleto_PK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>E104B2FA-A5D0-B0DD-E0E8-51C7A93832C1</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="25465C9A-BC09-0911-1122-CA912C106BC5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AD6521CA-77D6-622C-E797-7C8398C0A7D5" name="Boleto_Vuelo_FK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>27696434-29FF-3AF1-28F9-ABC4D4FF0D3D</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="56DD9E80-363B-EF92-2538-BE97DB8740D0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C66E9EEC-86F7-ADED-17B0-8BFF63596023" name="Boleto_Pasajero_FK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>67E2B940-000C-E43A-A951-4670A94AA785</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3AB63FCD-6182-6012-DB50-35BE677C525B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A2681DAB-4AFB-BE11-7FA7-8DA2FFC10CAE" name="Boleto_Pago_FK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>B52DC3A6-13BA-7AA3-AE93-4081566AE461</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A7CA7A40-2683-A2DE-18E8-565161F5ACAC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="95650B35-9101-CF3F-32D6-1BF0261F4613" name="Boleto_Reserva_FK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>DAFB43C0-2B33-ED8D-A400-825A47F7C8D6</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E1BF1B22-4737-4606-7C11-AED1A8D34846"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E79B0F0E-384E-C9E7-C9C4-E21431194D69" name="Boleto_Asientos_FK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>B84BB21F-187A-7F79-7F7C-650F58BEC6A8</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B509CA05-1C7C-1060-4301-5BCCB94E748C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="74533C42-97A6-887A-6317-6C83CF4DC76A" name="Boleto_Empleados_FK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>C5233D2F-E000-1EEF-C097-1AC9DCC89536</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="749CF73F-9220-1E0C-43AC-7E0A3C6D258A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

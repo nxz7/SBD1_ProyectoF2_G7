@@ -1,0 +1,149 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8C766420-F514-5854-893C-E5E460FA5913" name="Vuelo">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>6D3237CC-8E0B-F52D-C3DA-6A4DB5B2EE70</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_vuelo" id="C81DFBD9-A45F-5D47-18DD-E0C61271FDA0">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>5927B1EF-A45A-E821-AB6B-829846FEB24D</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_salida" id="24DFF06C-0AA8-043B-EE4E-BB2615808FED">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>3D3FA4D9-8DE7-F475-9A27-BC6886178B23</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_llegada" id="7472ABF1-CDC4-5CB7-47AC-18F33D773225">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>5C930137-B810-B330-F119-67F9F8A21284</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estado" id="ED09BDD1-AF7F-E0C0-58A6-A6FBAE6137CD">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>E8F7B659-D049-2F59-69FA-F3FE32FC24E0</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Aerolinea_id_aerolinea" id="BF6A21F6-F6DA-CF65-8774-F59DEC04E497">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>1646CB28-8C5E-D818-466F-351B4BB390B1</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D1929FD6-EC59-115F-938C-783F38FDF5C0" referredColumn="4DB2A924-1BC1-3855-0BD9-008840B71732"/>
+</associations>
+</Column>
+<Column name="Ruta_id_ruta" id="5D3FCFF4-CF0B-951E-8FA3-E5202C6A31D3">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>49354EAC-3209-BF46-22B9-E9B6CE29CC3F</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AD664349-1555-61C1-551E-FA36E22BDD90" referredColumn="7AC74EEE-C929-F203-DB09-998136FD0AC0"/>
+</associations>
+</Column>
+<Column name="PuertaEmbarque_id_puerta" id="5B50CE28-823D-E913-B0FD-18214DBDB1B1">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>9E169D7E-6ACE-24E8-15E2-3B5CD8BB4496</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="03DB2FF4-F8E3-AEE3-2A57-3D170BED0CB8" referredColumn="13E86F69-3198-0932-D0D0-AEBF647571DA"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E6E386A5-EF65-62E4-A2D5-8B89A4CD3624" name="Vuelo_PK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>D5A4897B-7BC9-07A8-D8CE-139034DD9707</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C81DFBD9-A45F-5D47-18DD-E0C61271FDA0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="01CB3B80-3982-A04F-B766-359C1B0FFA5B" name="Vuelo_Aerolinea_FK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>D33F6A99-7290-1D55-16B5-6AB31289B41C</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BF6A21F6-F6DA-CF65-8774-F59DEC04E497"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E64C7AF5-D309-90C8-01AB-53CE32EDC2AE" name="Vuelo_Ruta_FK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>5571861C-B102-0D7F-AA33-6522431CCAD9</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5D3FCFF4-CF0B-951E-8FA3-E5202C6A31D3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CD8743A9-58D4-2390-44B8-949AC37202AE" name="Vuelo_PuertaEmbarque_FK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>39371077-D5BF-0483-AC2C-F59908CDD66D</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5B50CE28-823D-E913-B0FD-18214DBDB1B1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

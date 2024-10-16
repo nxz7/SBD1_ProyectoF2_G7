@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="03DB2FF4-F8E3-AEE3-2A57-3D170BED0CB8" containerWithKeyObject="8C766420-F514-5854-893C-E5E460FA5913" localFKIndex="CD8743A9-58D4-2390-44B8-949AC37202AE" name="Vuelo_PuertaEmbarque_FK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>39371077-D5BF-0483-AC2C-F59908CDD66D</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<referredTableLongName>PuertaEmbarque</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>E9B76291-5906-E43A-A750-D0519FEEC35D</referredTableID>
+<keyObject>10A492DD-58BC-2155-9B9E-FB6D11F685C8</keyObject>
+<referredKeyID>10A492DD-58BC-2155-9B9E-FB6D11F685C8</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_puerta</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

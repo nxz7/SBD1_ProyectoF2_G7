@@ -1,0 +1,150 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="09535A06-3D4B-19A3-8B14-E10E7566AF2F" name="Equipaje">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>5075C66D-B5CB-ABB1-139D-D06376C0162A</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_equipaje" id="4D3BD3EB-A999-E1B5-BA25-1A8D87D66595">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>D5CCB2E6-770F-4D86-795B-67889FE7B1DF</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="peso" id="29D07DFA-C1CA-7200-8A88-DC7D601C4C8C">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>40FB4EC6-43CA-E31A-5B94-20873FB7BB1A</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="largo" id="5F12C561-CC93-924A-2320-451B516C1642">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>EDF690A0-098F-635E-FF78-778F3F4A0896</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ancho" id="861C1136-2251-161E-1D14-4E6D91E7E677">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>5AEFFD8B-689E-CC9B-BE9F-3FD6071074E3</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="alto" id="12524275-9E5E-ACFE-3B18-DC4166479E1B">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>359FC7CF-47C6-3919-A653-658FDF54FEA9</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estado" id="EB16AF46-FF25-0996-4EE2-0B4D49DF15FA">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>18FD6091-D12C-1000-B85B-3A3CAD7B2F20</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Pasajero_numero_pasaporte" id="B47938A8-B491-CFF1-8D8F-9D8C54A412A2">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>9037693C-3A6A-BD57-3C35-7ECE8D407BED</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8512ACF3-5254-6DA4-643A-E85D70D1C4DB" referredColumn="01048508-EFA8-12CF-CC88-2F7DBD019E7E"/>
+</associations>
+</Column>
+<Column name="Vuelo_id_vuelo" id="DBF82B42-BA9E-0AA5-C99C-2D4B4435ABFD">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>B83F8355-3865-5E7F-81C7-0EEFCA032904</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A7E7F41B-D380-1FF7-F987-393C2B3FFB36" referredColumn="C81DFBD9-A45F-5D47-18DD-E0C61271FDA0"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A04B72DB-653C-B29F-70EA-775062A32538" name="Equipaje_PK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>922AD1B8-14C3-0398-9CF7-47C0FB6513F7</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4D3BD3EB-A999-E1B5-BA25-1A8D87D66595"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2F07E83F-5B98-E034-7078-F74D074D647B" name="Equipaje_Pasajero_FK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>89373732-37BE-E91C-5063-A1C961025C6A</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B47938A8-B491-CFF1-8D8F-9D8C54A412A2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CFDF9694-EE15-42C1-5433-6D94AE3934C8" name="Equipaje_Vuelo_FK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>85E89D40-4B94-DE44-D66C-E2BAC5317FF0</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DBF82B42-BA9E-0AA5-C99C-2D4B4435ABFD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

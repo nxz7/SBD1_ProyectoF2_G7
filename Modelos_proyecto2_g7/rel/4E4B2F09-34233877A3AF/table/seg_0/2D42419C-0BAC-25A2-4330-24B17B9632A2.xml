@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2D42419C-0BAC-25A2-4330-24B17B9632A2" name="Tripulacion">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>51E73DD5-BB9B-D12F-CEF9-EB5EA716E5FB</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_tripulacion" id="68B4502D-2F69-02FE-D25F-9A55622BDD2C">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>6D7A5493-8340-DDA4-891C-4F69D9054CFD</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Empleados_id_empleado" id="67AD50AA-FD6E-82EA-DE1A-B4C4749188D2">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>AA93A89A-66A8-371C-25C1-04313AAE09B4</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CD1BDAC0-8394-0E08-AD59-DA2F505C86E0" referredColumn="EFD3C0E6-F3B6-0C9C-D6DE-1CC3AE9F1517"/>
+</associations>
+</Column>
+<Column name="Vuelo_id_vuelo" id="7B9E1518-30A0-E946-2547-DB2C51BB49D1">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>E380D964-8047-56E3-C18D-9983A9A58357</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C4FA5B0F-53DA-E274-A226-9A7E3AE95DE9" referredColumn="C81DFBD9-A45F-5D47-18DD-E0C61271FDA0"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4D6FC95A-77BD-897B-F212-5A2993CFE989" name="Tripulacion_PK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>63376C10-B91E-7836-4E2C-A7A2B961F3FA</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="68B4502D-2F69-02FE-D25F-9A55622BDD2C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="18E64917-DA52-BC24-7012-9A08DF798553" name="Tripulacion_Empleados_FK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>6A0BF88E-539D-2277-126A-714857AE899A</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="67AD50AA-FD6E-82EA-DE1A-B4C4749188D2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="399A0828-41E1-0C66-4A42-02E1FE08EB70" name="Tripulacion_Vuelo_FK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>06BEABAE-4308-ADA4-5CFC-33BD899E2037</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7B9E1518-30A0-E946-2547-DB2C51BB49D1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

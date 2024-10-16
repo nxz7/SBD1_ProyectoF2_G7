@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4D208A24-997B-2B8C-60AE-63C47F92153A" name="Terminal">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>C5C268B5-B604-4D84-3487-6F4D52963CC2</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_terminal" id="1FED5F6C-9B89-0F1C-7FFC-D63CC9DDED30">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>73021F98-9E17-9BD1-4B70-4DD3F5C0EF30</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Aeropuerto_id_aeropuerto" id="ADD1134C-FCBA-D02D-733B-646A01DA4387">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>45688BD6-B927-4662-62C0-247DC00CF3F5</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0A41D147-F69D-10C9-E294-97159A432EB3" referredColumn="5BD5528B-6DF6-42AE-C0D1-EB017D62AD98"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6135462C-00A6-A240-8F83-63063DBD43B5" name="Terminal_PK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>66B06A44-2F41-1E9D-3661-B6EF542B2FC0</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1FED5F6C-9B89-0F1C-7FFC-D63CC9DDED30"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A4D7BE3C-82B1-7614-3908-AEECAC63C338" name="Terminal_Aeropuerto_FK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-16 00:01:29 UTC</createdTime>
+<generatorID>39978CC3-591A-530A-A1D6-9C7504D307D8</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ADD1134C-FCBA-D02D-733B-646A01DA4387"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
