@@ -98,6 +98,21 @@
 <colAssociation fkAssociation="03DB2FF4-F8E3-AEE3-2A57-3D170BED0CB8" referredColumn="13E86F69-3198-0932-D0D0-AEBF647571DA"/>
 </associations>
 </Column>
+<Column name="Avion_id_avion" id="9E16AACD-64DA-2F4A-E705-571C66A7DE01">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-18 03:12:09 UTC</createdTime>
+<generatorID>4EE5ADC0-10AD-8C02-6FA6-FD1EF5002F9F</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="32A5AD47-E268-C252-F68B-243E01884A3C" referredColumn="C2E91367-2841-9A01-F861-D945D1D91535"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="E6E386A5-EF65-62E4-A2D5-8B89A4CD3624" name="Vuelo_PK">
@@ -143,6 +158,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="5B50CE28-823D-E913-B0FD-18214DBDB1B1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="31A5FC3E-6925-52A3-C20E-C7560E0C36AF" name="Vuelo_Avion_FK">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-18 03:12:09 UTC</createdTime>
+<generatorID>7FBB2E4B-C845-BB05-E58E-97C4E3D3CC26</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9E16AACD-64DA-2F4A-E705-571C66A7DE01"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6D3237CC-8E0B-F52D-C3DA-6A4DB5B2EE70" name="Vuelo">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D38799CD-DE29-EA15-C5C3-EF2B03A0BDB9" name="Aeropuerto">
 <createdBy>juliz</createdBy>
-<createdTime>2024-10-15 23:00:28 UTC</createdTime>
+<createdTime>2024-10-15 22:29:43 UTC</createdTime>
 <ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
 <engineerTo>
 <item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="id_vuelo" id="5927B1EF-A45A-E821-AB6B-829846FEB24D">
+<Attribute name="id_aeropuerto" id="1F0E90CA-4646-287B-91AB-C30B07F95EBC">
 <createdBy>juliz</createdBy>
-<createdTime>2024-10-15 23:00:32 UTC</createdTime>
+<createdTime>2024-10-15 22:29:50 UTC</createdTime>
 <ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
 <engineerTo>
 <item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
@@ -27,33 +27,9 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="fecha_salida" id="3D3FA4D9-8DE7-F475-9A27-BC6886178B23">
+<Attribute name="codigo_IATA" id="DCE33190-D364-58A2-FAC5-18859852D524">
 <createdBy>juliz</createdBy>
-<createdTime>2024-10-15 23:00:49 UTC</createdTime>
-<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
-<engineerTo>
-<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT008</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="fecha_llegada" id="5C930137-B810-B330-F119-67F9F8A21284">
-<createdBy>juliz</createdBy>
-<createdTime>2024-10-15 23:01:28 UTC</createdTime>
-<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
-<engineerTo>
-<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT008</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="estado" id="E8F7B659-D049-2F59-69FA-F3FE32FC24E0">
-<createdBy>juliz</createdBy>
-<createdTime>2024-10-15 23:01:46 UTC</createdTime>
+<createdTime>2024-10-15 22:30:02 UTC</createdTime>
 <ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
 <engineerTo>
 <item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
@@ -61,46 +37,70 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>25</dataTypeSize>
-<ownDataTypeParameters>25,,</ownDataTypeParameters>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_aerolinea" id="1646CB28-8C5E-D818-466F-351B4BB390B1">
+<Attribute name="nombre" id="B865BECA-D991-4322-7EDB-93050433AB9D">
 <createdBy>juliz</createdBy>
-<createdTime>2024-10-15 23:34:20 UTC</createdTime>
-<generatorID>D33F6A99-7290-1D55-16B5-6AB31289B41C</generatorID>
+<createdTime>2024-10-15 22:30:16 UTC</createdTime>
 <ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
 <engineerTo>
 <item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
 </engineerTo>
-<referedAttribute>19DD9ACE-461F-D1E4-EC85-D5103D5A5428</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_ruta" id="49354EAC-3209-BF46-22B9-E9B6CE29CC3F">
+<Attribute name="direccion" id="E31E5FC9-8766-A31F-CC32-08891455CF0E">
 <createdBy>juliz</createdBy>
-<createdTime>2024-10-15 23:37:52 UTC</createdTime>
-<generatorID>5571861C-B102-0D7F-AA33-6522431CCAD9</generatorID>
+<createdTime>2024-10-15 22:30:29 UTC</createdTime>
 <ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
 <engineerTo>
 <item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
 </engineerTo>
-<referedAttribute>F64610A3-3C00-7673-34C9-52B6EB0F683B</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_puerta" id="9E169D7E-6ACE-24E8-15E2-3B5CD8BB4496">
+<Attribute name="pista_extendida" id="C9ABB0DF-ECAA-6D23-D1A4-57CD5CA657BF">
 <createdBy>juliz</createdBy>
-<createdTime>2024-10-15 23:38:42 UTC</createdTime>
-<generatorID>39371077-D5BF-0483-AC2C-F59908CDD66D</generatorID>
+<createdTime>2024-10-15 22:30:42 UTC</createdTime>
 <ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
 <engineerTo>
 <item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
 </engineerTo>
-<referedAttribute>3BA2C9D6-9AFE-BFD2-EBBA-34ED1C858DBD</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="servicio_aduanero" id="9F84C68B-8C9F-1079-F1F1-578600D9D626">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 22:30:55 UTC</createdTime>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_ciudad" id="0FFACE1A-F497-CFAA-9C81-6E32C7EB7AD0">
+<createdBy>juliz</createdBy>
+<createdTime>2024-10-15 23:20:52 UTC</createdTime>
+<generatorID>809BB8FA-FDB8-727D-6D65-431D15EF0A60</generatorID>
+<ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<engineerTo>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+</engineerTo>
+<referedAttribute>C98AF8F0-24B2-3C42-2057-6ACFABD52618</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -108,16 +108,17 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="D5A4897B-7BC9-07A8-D8CE-139034DD9707" name="Vuelo PK">
+<identifier id="C1679E77-269C-8D19-08EA-23418D8D2D62" name="Aeropuerto PK">
 <createdBy>juliz</createdBy>
-<createdTime>2024-10-15 23:00:48 UTC</createdTime>
+<createdTime>2024-10-15 22:30:01 UTC</createdTime>
 <ownerDesignName>Modelos_proyecto2_g7</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="true"/>
+<item key="4E4B2F09-46C7-2681-BC9B-34233877A3AF" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>5927B1EF-A45A-E821-AB6B-829846FEB24D</attributeRef>
+<attributeRef>1F0E90CA-4646-287B-91AB-C30B07F95EBC</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

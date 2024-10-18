@@ -1,5 +1,5 @@
 -- Generado por Oracle SQL Developer Data Modeler 23.1.0.087.0806
---   en:        2024-10-15 18:06:59 CST
+--   en:        2024-10-17 21:17:50 CST
 --   sitio:      Oracle Database 21c
 --   tipo:      Oracle Database 21c
 
@@ -209,7 +209,8 @@ CREATE TABLE vuelo (
     estado                   VARCHAR2(25) NOT NULL,
     aerolinea_id_aerolinea   INTEGER NOT NULL,
     ruta_id_ruta             INTEGER NOT NULL,
-    puertaembarque_id_puerta INTEGER NOT NULL
+    puertaembarque_id_puerta INTEGER NOT NULL,
+    avion_id_avion           INTEGER NOT NULL
 );
 
 ALTER TABLE vuelo ADD CONSTRAINT vuelo_pk PRIMARY KEY ( id_vuelo );
@@ -287,7 +288,7 @@ ALTER TABLE ruta
         REFERENCES aeropuerto ( id_aeropuerto );
 
 ALTER TABLE ruta
-    ADD CONSTRAINT ruta_aeropuerto_fkv1 FOREIGN KEY ( destino )
+    ADD CONSTRAINT ruta_aeropuerto_fkv2 FOREIGN KEY ( destino )
         REFERENCES aeropuerto ( id_aeropuerto );
 
 ALTER TABLE tarifa
@@ -311,6 +312,10 @@ ALTER TABLE vuelo
         REFERENCES aerolinea ( id_aerolinea );
 
 ALTER TABLE vuelo
+    ADD CONSTRAINT vuelo_avion_fk FOREIGN KEY ( avion_id_avion )
+        REFERENCES avion ( id_avion );
+
+ALTER TABLE vuelo
     ADD CONSTRAINT vuelo_puertaembarque_fk FOREIGN KEY ( puertaembarque_id_puerta )
         REFERENCES puertaembarque ( id_puerta );
 
@@ -324,7 +329,7 @@ ALTER TABLE vuelo
 -- 
 -- CREATE TABLE                            21
 -- CREATE INDEX                             0
--- ALTER TABLE                             47
+-- ALTER TABLE                             48
 -- CREATE VIEW                              0
 -- ALTER VIEW                               0
 -- CREATE PACKAGE                           0
