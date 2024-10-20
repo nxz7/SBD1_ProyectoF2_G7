@@ -1,0 +1,49 @@
+-- AutoIncrementando 'pais' table
+CREATE SEQUENCE pais_seq
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+-- AutoIncrementando 'ciudad' table
+CREATE SEQUENCE ciudad_seq
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+-- AutoIncrementando 'aeropuerto' table
+CREATE SEQUENCE aeropuerto_seq
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+-- AutoIncrementando 'ruta' table
+CREATE SEQUENCE ruta_seq
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+-- AutoIncrementando 'vuelo' table
+CREATE SEQUENCE vuelo_seq
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+-- AutoIncrementando 'tarifa' table
+CREATE SEQUENCE tarifa_seq
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+
+-- AutoIncrementando 'historial' table
+CREATE SEQUENCE historial_seq
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;

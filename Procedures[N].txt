@@ -5,34 +5,37 @@ CREATE OR REPLACE PROCEDURE RegistrarAeropuerto(
     p_codigo_iata       VARCHAR2,
     p_nombre            VARCHAR2,
     p_direccion         VARCHAR2,
-    p_pista_extendida   BOOLEAN,
-    p_servicio_aduanero BOOLEAN,
+    p_pista_extendida   NUMBER,
+    p_servicio_aduanero NUMBER,
     p_ciudad            VARCHAR2,
     p_pais              VARCHAR2
 ) IS
     v_id_ciudad   INTEGER;
     v_id_pais     INTEGER;
-    v_id_aeropuerto INTEGER;
 BEGIN
     -- Verificar si el país existe, si no, insertarlo
-    SELECT id_pais INTO v_id_pais
-    FROM pais
-    WHERE nombre = p_pais;
-    
-    EXCEPTION WHEN NO_DATA_FOUND THEN
-        INSERT INTO pais (id_pais, nombre)
-        VALUES (pais_seq.NEXTVAL, p_pais)
-        RETURNING id_pais INTO v_id_pais;
-    
+    BEGIN
+        SELECT id_pais INTO v_id_pais
+        FROM pais
+        WHERE nombre = p_pais;
+    EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+            INSERT INTO pais (id_pais, nombre)
+            VALUES (pais_seq.NEXTVAL, p_pais)
+            RETURNING id_pais INTO v_id_pais;
+    END;
+
     -- Verificar si la ciudad existe, si no, insertarla
-    SELECT id_ciudad INTO v_id_ciudad
-    FROM ciudad
-    WHERE nombre = p_ciudad AND pais_id_pais = v_id_pais;
-    
-    EXCEPTION WHEN NO_DATA_FOUND THEN
-        INSERT INTO ciudad (id_ciudad, nombre, pais_id_pais)
-        VALUES (ciudad_seq.NEXTVAL, p_ciudad, v_id_pais)
-        RETURNING id_ciudad INTO v_id_ciudad;
+    BEGIN
+        SELECT id_ciudad INTO v_id_ciudad
+        FROM ciudad
+        WHERE nombre = p_ciudad AND pais_id_pais = v_id_pais;
+    EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+            INSERT INTO ciudad (id_ciudad, nombre, pais_id_pais)
+            VALUES (ciudad_seq.NEXTVAL, p_ciudad, v_id_pais)
+            RETURNING id_ciudad INTO v_id_ciudad;
+    END;
 
     -- Insertar el aeropuerto con un id autoincremental
     INSERT INTO aeropuerto (id_aeropuerto, codigo_iata, nombre, direccion, pista_extendida, servicio_aduanero, ciudad_id_ciudad)
@@ -55,16 +58,23 @@ CREATE OR REPLACE PROCEDURE RegistrarRuta(
     p_destino      INTEGER
 ) IS
     v_id_ruta INTEGER;
+        v_origen   INTEGER;  -- Declare variable for origen
+    v_destino  INTEGER; 
 BEGIN
+
+    BEGIN
     -- Verificar que el aeropuerto de origen existe
     SELECT id_aeropuerto INTO v_origen
     FROM aeropuerto
     WHERE id_aeropuerto = p_origen;
-    
+    END;
+
+    BEGIN
     -- Verificar que el aeropuerto de destino existe
     SELECT id_aeropuerto INTO v_destino
     FROM aeropuerto
     WHERE id_aeropuerto = p_destino;
+    END;
 
     -- Insertar la nueva ruta
     INSERT INTO ruta (id_ruta, tiempo_de_vuelo, distancia, origen, destino)
@@ -75,7 +85,6 @@ END;
 
 
 8. Registrar Vuelo
-
 CREATE OR REPLACE PROCEDURE RegistrarVuelo(
     p_fecha_salida        DATE,
     p_fecha_llegada       DATE,
@@ -89,35 +98,76 @@ CREATE OR REPLACE PROCEDURE RegistrarVuelo(
     p_economica_tarifa    NUMBER
 ) IS
     v_id_vuelo INTEGER;
+    v_id_puerta INTEGER; 
+    v_id_ruta INTEGER;   
+    v_id_aerolinea INTEGER; 
 BEGIN
-    -- Verificar que el avión existe y su estado es 0 (disponible)
-    SELECT id_avion INTO v_id_vuelo
-    FROM avion
-    WHERE id_avion = p_avion_id AND estado = 0;
+    -- QUE EXISTA EL AVION Y ESTE DISPONIBLE 0
+    BEGIN
+        SELECT id_avion INTO v_id_vuelo
+        FROM avion
+        WHERE id_avion = p_avion_id AND estado = 0;
+    EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+            RAISE_APPLICATION_ERROR(-20001, '[error] El avión con ID ' || p_avion_id || ' no existe o no está disponible.');
+    END;
 
-    -- Verificar que la puerta de embarque existe
-    SELECT id_puerta INTO p_puertaembarque_id
-    FROM puertaembarque
-    WHERE id_puerta = p_puertaembarque_id;
+    -- PUERTA EXISTE
+    BEGIN
+        SELECT id_puerta INTO v_id_puerta
+        FROM puertaembarque
+        WHERE id_puerta = p_puertaembarque_id;
+    EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+            RAISE_APPLICATION_ERROR(-20002, '[error] La puerta de embarque con ID ' || p_puertaembarque_id || ' no existe.');
+    END;
 
-    -- Verificar que la ruta existe
-    SELECT id_ruta INTO p_ruta_id
-    FROM ruta
-    WHERE id_ruta = p_ruta_id;
+    -- RUTA EXISTE
+    BEGIN
+        SELECT id_ruta INTO v_id_ruta
+        FROM ruta
+        WHERE id_ruta = p_ruta_id;
+    EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+            RAISE_APPLICATION_ERROR(-20003, '[error] La ruta con ID ' || p_ruta_id || ' no existe.');
+    END;
 
-    -- Verificar que la aerolínea existe
-    SELECT id_aerolinea INTO p_aerolinea_id
-    FROM aerolinea
-    WHERE id_aerolinea = p_aerolinea_id;
+    -- AEROLINEA EXISTE
+    BEGIN
+        SELECT id_aerolinea INTO v_id_aerolinea
+        FROM aerolinea
+        WHERE id_aerolinea = p_aerolinea_id;
+    EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+            RAISE_APPLICATION_ERROR(-20004, '[error] La aerolínea con ID ' || p_aerolinea_id || ' no existe.');
+    END;
 
     -- Verificar que la fecha de llegada es posterior a la fecha de salida
     IF p_fecha_llegada <= p_fecha_salida THEN
-        RAISE_APPLICATION_ERROR(-20001, 'La fecha de llegada debe ser posterior a la de salida');
+        RAISE_APPLICATION_ERROR(-20005, '[error] La fecha de llegada debe ser después de la fecha de salida.');
     END IF;
 
     -- Insertar vuelo
-    INSERT INTO vuelo (id_vuelo, fecha_salida, fecha_llegada, estado, avion_id_avion, ruta_id_ruta, puertaembarque_id_puerta, aerolinea_id_aerolinea)
-    VALUES (vuelo_seq.NEXTVAL, p_fecha_salida, p_fecha_llegada, p_estado, p_avion_id, p_ruta_id, p_puertaembarque_id, p_aerolinea_id)
+    INSERT INTO vuelo (
+        id_vuelo,
+        fecha_salida,
+        fecha_llegada,
+        estado,
+        avion_id_avion,
+        ruta_id_ruta,
+        puertaembarque_id_puerta,
+        aerolinea_id_aerolinea
+    )
+    VALUES (
+        vuelo_seq.NEXTVAL,
+        p_fecha_salida,
+        p_fecha_llegada,
+        p_estado,
+        p_avion_id,
+        v_id_ruta,           
+        v_id_puerta,         
+        v_id_aerolinea       
+    )
     RETURNING id_vuelo INTO v_id_vuelo;
 
     -- Insertar tarifas
@@ -133,6 +183,7 @@ BEGIN
     COMMIT;
 END;
 
+
 11.Aumento de Salario 
 
 
@@ -140,25 +191,30 @@ CREATE OR REPLACE PROCEDURE AumentoSalario(
     p_empleado_id INTEGER,  
     p_salario     NUMBER    
 ) IS
-    v_cargo_id INTEGER;  
+    v_cargo_id INTEGER; 
+     
 BEGIN
-    -- ver que exista
-    SELECT cargo_id INTO v_cargo_id
-    FROM empleado
+    -- el empleado exista
+    SELECT cargo_id_cargo INTO v_cargo_id
+    FROM empleados
     WHERE id_empleado = p_empleado_id;
 
-    -- Update
+    IF p_salario < 0 THEN
+        RAISE_APPLICATION_ERROR(-20003, 'El salario no puede ser negativo.');
+    END IF;
+
+    -- update
     UPDATE cargo
-    SET salario = p_salario
+    SET salario_base = p_salario
     WHERE id_cargo = v_cargo_id;
 
-    COMMIT;
 EXCEPTION
     WHEN NO_DATA_FOUND THEN
         RAISE_APPLICATION_ERROR(-20001, 'El empleado no existe');
     WHEN OTHERS THEN
-        RAISE_APPLICATION_ERROR(-20002, 'ERROR mientras se aumentaba el salario ');
+        RAISE_APPLICATION_ERROR(-20002, 'ERROR mientras se aumentaba el salario: ' || SQLERRM);
 END;
+
 
 -- REPORTES
 
@@ -166,46 +222,77 @@ END;
 
 
 CREATE OR REPLACE PROCEDURE ConsultarAviones IS
-    CURSOR avion_cursor IS
+BEGIN
+    -- HEADER
+    DBMS_OUTPUT.PUT_LINE('************************************************************');
+    DBMS_OUTPUT.PUT_LINE('Modelo                | Matrícula         | Aerolínea               | Estado');
+    DBMS_OUTPUT.PUT_LINE('************************************************************');
+
+    -- CURSOR DEC
+    FOR avion_rec IN (
         SELECT a.modelo, a.matricula, al.nombre AS aerolinea_nombre, a.estado
         FROM avion a
-        JOIN aerolinea al ON a.aerolinea_id_aerolinea = al.id_aerolinea;
-BEGIN
-    -- iterar y mostrar
-    FOR avion_rec IN avion_cursor LOOP
-        DBMS_OUTPUT.PUT_LINE('Modelo: ' || avion_rec.modelo);
-        DBMS_OUTPUT.PUT_LINE('Matrícula: ' || avion_rec.matricula);
-        DBMS_OUTPUT.PUT_LINE('Aerolínea: ' || avion_rec.aerolinea_nombre);
-        DBMS_OUTPUT.PUT_LINE('Estado: ' || avion_rec.estado);
-        DBMS_OUTPUT.PUT_LINE('*************************************');
+        JOIN aerolinea al ON a.aerolinea_id_aerolinea = al.id_aerolinea
+    ) LOOP
+        -- FROMATO
+        DBMS_OUTPUT.PUT_LINE(
+            RPAD(avion_rec.modelo, 20) || ' | ' ||
+            RPAD(avion_rec.matricula, 17) || ' | ' ||
+            RPAD(avion_rec.aerolinea_nombre, 27) || ' | ' ||
+            avion_rec.estado
+        );
     END LOOP;
-END;
 
+    DBMS_OUTPUT.PUT_LINE('************************************************************');
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+END;
 
 SET SERVEROUTPUT ON;
 
 
 5. Consultar Cancelaciones 
 
-
-
-
-
-
--- 
+CREATE OR REPLACE PROCEDURE ConsultarCancelaciones IS
 BEGIN
-   FOR rec IN (SELECT object_name FROM user_objects WHERE object_type = 'PROCEDURE') LOOP
-      EXECUTE IMMEDIATE 'DROP PROCEDURE ' || rec.object_name;
-   END LOOP;
+    -- Print header
+    DBMS_OUTPUT.PUT_LINE('-------------------------------------------------------');
+    DBMS_OUTPUT.PUT_LINE('ID Boleto | ID Vuelo | ID Asiento | Clase   | Pasajero');
+    DBMS_OUTPUT.PUT_LINE('-------------------------------------------------------');
+
+    -- iterar
+    FOR boleto_rec IN (
+        SELECT 
+            b.id_boleto,
+            b.vuelo_id_vuelo,
+            b.asientos_id_asiento,
+            a.clase,
+            p.nombres || ' ' || p.apellidos AS pasajero
+        FROM 
+            boleto b
+        JOIN 
+            asientos a ON b.asientos_id_asiento = a.id_asiento
+        JOIN 
+            pasajero p ON b.pasajero_numero_pasaporte = p.numero_pasaporte
+        WHERE 
+            b.estado = 'CANCELADO'
+    ) LOOP
+        -- formato tabla
+        DBMS_OUTPUT.PUT_LINE(
+            RPAD(boleto_rec.id_boleto, 10) || ' | ' ||
+            RPAD(boleto_rec.vuelo_id_vuelo, 9) || ' | ' ||
+            RPAD(boleto_rec.asientos_id_asiento, 11) || ' | ' ||
+            RPAD(boleto_rec.clase, 8) || ' | ' ||
+            boleto_rec.pasajero
+        );
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('-------------------------------------------------------');
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
 END;
 
-
-
--- 
-BEGIN
-   FOR rec IN (SELECT trigger_name FROM user_triggers) LOOP
-      EXECUTE IMMEDIATE 'DROP TRIGGER ' || rec.trigger_name;
-   END LOOP;
-END;
 
 

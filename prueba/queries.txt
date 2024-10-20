@@ -1,0 +1,79 @@
+BEGIN
+	
+	  RegistrarAeropuerto(
+        'IATA_CODE',         -- Example: 'JFK'
+        'John F. Kennedy International Airport',  -- Airport Name
+        'Queens, New York',  -- Address
+        1,                   -- Extended runway (1 for true, 0 for false)
+        1,                   -- Customs service (1 for true, 0 for false)
+        'New York',          -- City
+        'United States'      -- Country
+    );
+   
+    RegistrarAeropuerto(
+        'IATA_CODE2',         -- Example: 'JFK'
+        'AURORA International Airport',  -- Airport Name
+        'GT, GT',  -- Address
+        1,                   -- Extended runway (1 for true, 0 for false)
+        0,                   -- Customs service (1 for true, 0 for false)
+        'GT',          -- City
+        'GT'      -- Country
+    );
+END;
+
+
+
+BEGIN
+    RegistrarRuta(345, 4456, 1, 2);
+END;
+
+-- Insertar una aerolínea
+INSERT INTO aerolinea (id_aerolinea, codigo_oaci, nombre, ciudad_id_ciudad)
+VALUES (1, 'AAL', 'Aerolínea de Ejemplo', 1);
+
+-- Insertar un avión
+INSERT INTO avion (id_avion, matricula, modelo, capacidad, estado, alcance, aerolinea_id_aerolinea)
+VALUES (1, 'AB123', 'Boeing 737', 180, 1, 3000, 1);
+
+INSERT INTO avion (id_avion, matricula, modelo, capacidad, estado, alcance, aerolinea_id_aerolinea)
+VALUES (2, 'ZZ23', 'ZIGGY 737', 180, 0, 3000, 1);
+
+
+
+-- Insertar una terminal
+INSERT INTO terminal (id_terminal, aeropuerto_id_aeropuerto)
+VALUES (1, 1);
+
+-- Insertar una puerta de embarque
+INSERT INTO puertaembarque (id_puerta, puerta, terminal_id_terminal)
+VALUES (1, 'A1', 1);
+
+
+
+BEGIN
+    RegistrarVuelo(
+        TO_DATE('2024-10-25 15:00:00', 'YYYY-MM-DD HH24:MI:SS'),  
+        TO_DATE('2024-10-25 18:00:00', 'YYYY-MM-DD HH24:MI:SS'),  
+        'Programado',                                               
+        2,                                                         
+        1,                                                         
+        1,                                                         
+        1,                                                         
+        1000,                                                      
+        750,                                                       
+        500                                                        
+    );
+END;
+
+
+-- Insertar un cargo
+INSERT INTO cargo (id_cargo, nombre, salario_base)
+VALUES (1, 'Piloto', 5000.00);
+
+-- Insertar un empleado para la aerolínea 1
+INSERT INTO empleados (id_empleado, nombres, apellidos, correo, telefono, direccion, nacimiento, aerolinea_id_aerolinea, cargo_id_cargo)
+VALUES (1, 'Juan', 'Pérez', 'juan.perez@example.com', 5551234567, 'Calle Ejemplo 123', TO_DATE('1990-01-15', 'YYYY-MM-DD'), 1, 1);
+
+BEGIN
+    ConsultarAviones;  
+END;
