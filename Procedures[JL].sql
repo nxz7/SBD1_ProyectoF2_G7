@@ -123,6 +123,9 @@ END;
 ----------------------------------------------------
 10. Comprar boleto
 ----------------------------------------------------
+--Es necesario para cuando se compre un boleto sin reserva
+ALTER TABLE boleto MODIFY reserva_id_reserva NULL;
+
 CREATE OR REPLACE PROCEDURE CompraBoleto(
     p_fecha                 DATE,
     p_vuelo_id_vuelo        INTEGER,
@@ -137,7 +140,7 @@ CREATE OR REPLACE PROCEDURE CompraBoleto(
     v_pago_id INTEGER;
 
 BEGIN
-    -- Validacion de estado y fecha de salida validos
+    -- Validación de estado y fecha de salida válidos
     SELECT estado, fecha_salida INTO v_vuelo_estado, v_vuelo_fecha_salida
     FROM vuelo
     WHERE id_vuelo = p_vuelo_id_vuelo;
@@ -160,8 +163,30 @@ BEGIN
     VALUES (pago_seq.NEXTVAL, SYSDATE, 'Efectivo'); 
     SELECT pago_seq.CURRVAL INTO v_pago_id FROM dual;
 
-    INSERT INTO boleto (id_boleto, estado, fecha, vuelo_id_vuelo, pasajero_numero_pasaporte, pago_id_pago, reserva_id_reserva, asientos_id_asiento, empleados_id_empleado)
-    VALUES (boleto_seq.NEXTVAL, 'Emitido', p_fecha, p_vuelo_id_vuelo, p_pasajero_numero_pasaporte, v_pago_id, p_reserva_id_reserva, p_asientos_id_asiento, p_empleados_id_empleado);
+    
+    IF p_reserva_id_reserva = 0 THEN
+        -- Insertar sin reserva_id_reserva
+        INSERT INTO boleto (
+            id_boleto, estado, fecha, vuelo_id_vuelo, pasajero_numero_pasaporte, 
+            pago_id_pago, asientos_id_asiento, empleados_id_empleado
+        )
+        VALUES (
+            boleto_seq.NEXTVAL, 'Emitido', p_fecha, p_vuelo_id_vuelo, 
+            p_pasajero_numero_pasaporte, v_pago_id, 
+            p_asientos_id_asiento, p_empleados_id_empleado
+        );
+    ELSE
+        -- Insertar con  reserva_id_reserva
+        INSERT INTO boleto (
+            id_boleto, estado, fecha, vuelo_id_vuelo, pasajero_numero_pasaporte, 
+            pago_id_pago, reserva_id_reserva, asientos_id_asiento, empleados_id_empleado
+        )
+        VALUES (
+            boleto_seq.NEXTVAL, 'Emitido', p_fecha, p_vuelo_id_vuelo, 
+            p_pasajero_numero_pasaporte, v_pago_id, 
+            p_reserva_id_reserva, p_asientos_id_asiento, p_empleados_id_empleado
+        );
+    END IF;
 
     DBMS_OUTPUT.PUT_LINE('Boleto emitido exitosamente.');
     COMMIT;
