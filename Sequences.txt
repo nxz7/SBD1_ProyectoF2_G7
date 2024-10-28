@@ -47,3 +47,31 @@ CREATE SEQUENCE historial_seq
     INCREMENT BY 1
     NOCACHE
     NOCYCLE;
+
+-- AutoIncrementado 'aerolinea' table    
+CREATE SEQUENCE aerolinea_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+-- AutoIncrementado 'avion' table    
+CREATE SEQUENCE avion_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+-- AutoIncrementado 'asientos' table    
+CREATE SEQUENCE asiento_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+-- AutoIncrementado 'boleto' table    
+CREATE SEQUENCE boleto_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;

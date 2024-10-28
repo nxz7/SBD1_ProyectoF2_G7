@@ -193,3 +193,130 @@ BEGIN
     VALUES (historial_seq.NEXTVAL, SYSDATE, 'cargo', 'delete');
 END;
 
+--AEROLINEA
+
+CREATE OR REPLACE TRIGGER historial_insert_aerolinea
+AFTER INSERT ON aerolinea
+FOR EACH ROW
+BEGIN
+    INSERT INTO historial (id_transaccion, fecha, descripcion, tipo)
+    VALUES (historial_seq.NEXTVAL, SYSDATE, 'aerolinea', 'insert');
+END;
+
+CREATE OR REPLACE TRIGGER historial_update_aerolinea
+AFTER UPDATE ON aerolinea
+FOR EACH ROW
+BEGIN
+    INSERT INTO historial (id_transaccion, fecha, descripcion, tipo)
+    VALUES (historial_seq.NEXTVAL, SYSDATE, 'aerolinea', 'update');
+END;
+
+
+CREATE OR REPLACE TRIGGER historial_delete_aerolinea
+AFTER DELETE ON aerolinea
+FOR EACH ROW
+BEGIN
+    INSERT INTO historial (id_transaccion, fecha, descripcion, tipo)
+    VALUES (historial_seq.NEXTVAL, SYSDATE, 'aerolinea', 'delete');
+END;
+
+
+--AVION
+CREATE OR REPLACE TRIGGER historial_insert_avion
+AFTER INSERT ON avion
+FOR EACH ROW
+BEGIN
+    INSERT INTO historial (id_transaccion, fecha, descripcion, tipo)
+    VALUES (historial_seq.NEXTVAL, SYSDATE, 'avion', 'insert');
+END;
+
+CREATE OR REPLACE TRIGGER historial_update_avion
+AFTER UPDATE ON avion
+FOR EACH ROW
+BEGIN
+    INSERT INTO historial (id_transaccion, fecha, descripcion, tipo)
+    VALUES (historial_seq.NEXTVAL, SYSDATE, 'avion', 'update');
+END;
+
+CREATE OR REPLACE TRIGGER historial_delete_avion
+AFTER DELETE ON avion
+FOR EACH ROW
+BEGIN
+    INSERT INTO historial (id_transaccion, fecha, descripcion, tipo)
+    VALUES (historial_seq.NEXTVAL, SYSDATE, 'avion', 'delete');
+END;
+
+--PASAJERO
+CREATE OR REPLACE TRIGGER historial_insert_pasajero
+AFTER INSERT ON pasajero
+FOR EACH ROW
+BEGIN
+    INSERT INTO historial (id_transaccion, fecha, descripcion, tipo)
+    VALUES (historial_seq.NEXTVAL, SYSDATE, 'pasajero', 'insert');
+END;
+
+CREATE OR REPLACE TRIGGER historial_update_pasajero
+AFTER UPDATE ON pasajero
+FOR EACH ROW
+BEGIN
+    INSERT INTO historial (id_transaccion, fecha, descripcion, tipo)
+    VALUES (historial_seq.NEXTVAL, SYSDATE, 'pasajero', 'update');
+END;
+
+CREATE OR REPLACE TRIGGER historial_delete_pasajero
+AFTER DELETE ON pasajero
+FOR EACH ROW
+BEGIN
+    INSERT INTO historial (id_transaccion, fecha, descripcion, tipo)
+    VALUES (historial_seq.NEXTVAL, SYSDATE, 'pasajero', 'delete');
+END;
+
+--BOLETO
+CREATE OR REPLACE TRIGGER historial_insert_boleto
+AFTER INSERT ON boleto
+FOR EACH ROW
+BEGIN
+    INSERT INTO historial (id_transaccion, fecha, descripcion, tipo)
+    VALUES (historial_seq.NEXTVAL, SYSDATE, 'compra boleto', 'insert');
+END;
+
+CREATE OR REPLACE TRIGGER historial_update_boleto
+AFTER UPDATE ON boleto
+FOR EACH ROW
+BEGIN
+    INSERT INTO historial (id_transaccion, fecha, descripcion, tipo)
+    VALUES (historial_seq.NEXTVAL, SYSDATE, 'compra boleto', 'update');
+END;
+
+CREATE OR REPLACE TRIGGER historial_delete_boleto
+AFTER DELETE ON boleto
+FOR EACH ROW
+BEGIN
+    INSERT INTO historial (id_transaccion, fecha, descripcion, tipo)
+    VALUES (historial_seq.NEXTVAL, SYSDATE, 'compra boleto', 'delete');
+END;
+
+--PAGO
+CREATE OR REPLACE TRIGGER historial_insert_pago
+AFTER INSERT ON pago
+FOR EACH ROW
+BEGIN
+    INSERT INTO historial (id_transaccion, fecha, descripcion, tipo)
+    VALUES (historial_seq.NEXTVAL, SYSDATE, 'pago', 'insert');
+END;
+
+CREATE OR REPLACE TRIGGER historial_update_pago
+AFTER UPDATE ON pago
+FOR EACH ROW
+BEGIN
+    INSERT INTO historial (id_transaccion, fecha, descripcion, tipo)
+    VALUES (historial_seq.NEXTVAL, SYSDATE, 'pago', 'update');
+END;
+
+CREATE OR REPLACE TRIGGER historial_delete_pago
+AFTER DELETE ON pago
+FOR EACH ROW
+BEGIN
+    INSERT INTO historial (id_transaccion, fecha, descripcion, tipo)
+    VALUES (historial_seq.NEXTVAL, SYSDATE, 'pago', 'delete');
+END;
