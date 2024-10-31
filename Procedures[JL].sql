@@ -147,7 +147,7 @@ END;
 --Es necesario para cuando se compre un boleto sin reserva
 ALTER TABLE boleto MODIFY reserva_id_reserva NULL;
 
-CREATE OR REPLACE PROCEDURE BD1.CompradeBoleto(
+CREATE OR REPLACE PROCEDURE CompradeBoleto(
     p_vuelo_id_vuelo        INTEGER,
     p_asientos_id_asiento   INTEGER,
     p_empleados_id_empleado INTEGER,
