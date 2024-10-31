@@ -2,19 +2,22 @@
 1. Consultar Vuelo
 -- --------------------------------------------------
 
-CREATE PROCEDURE ConsultarVuelo(IN codigo_vuelo INT)
+CREATE OR REPLACE PROCEDURE ConsultarVuelo (codigo_vuelo IN NUMBER) IS
 BEGIN
-    IF (SELECT COUNT(*) FROM vuelo WHERE id_vuelo = codigo_vuelo) = 0 THEN
-        SELECT 'El vuelo con el código no existe.' AS Mensaje;
-    ELSE
+    -- Encabezado
+    DBMS_OUTPUT.PUT_LINE('--------------------------------------------------------------------------');
+    DBMS_OUTPUT.PUT_LINE('Código Vuelo | Modelo Avión     | Asientos Ocupados | Asientos Disponibles | Clase   | Piloto               | Monto Ganado');
+    DBMS_OUTPUT.PUT_LINE('--------------------------------------------------------------------------');
+
+    FOR vuelo_rec IN (
         SELECT 
-            v.id_vuelo AS "Código Vuelo",
-            av.modelo AS "Modelo del Avión",
-            COUNT(CASE WHEN b.id_boleto IS NOT NULL THEN 1 END) AS "Asientos Ocupados",
-            COUNT(CASE WHEN b.id_boleto IS NULL THEN 1 END) AS "Asientos Disponibles",
-            a.clase AS "Clase",
-            CONCAT(e.nombres, ' ', e.apellidos) AS "Piloto",
-            SUM(t.precio) AS "Monto Ganado"
+            v.id_vuelo AS codigo_vuelo,
+            av.modelo AS modelo_avion,
+            COUNT(CASE WHEN b.id_boleto IS NOT NULL THEN 1 END) AS asientos_ocupados,
+            COUNT(CASE WHEN b.id_boleto IS NULL THEN 1 END) AS asientos_disponibles,
+            a.clase AS clase,
+            e.nombres || ' ' || e.apellidos AS piloto,
+            SUM(t.precio) AS monto_ganado
         FROM 
             vuelo v
         JOIN 
@@ -28,36 +31,75 @@ BEGIN
         JOIN 
             tripulacion tr ON tr.vuelo_id_vuelo = v.id_vuelo
         JOIN 
-            empleados e ON e.id_empleado = tr.empleados_id_empleado 
-                AND e.cargo_id_cargo = (SELECT id_cargo FROM cargo WHERE nombre = 'Piloto')
+            empleados e ON e.id_empleado = tr.empleados_id_empleado AND e.cargo_id_cargo = (
+                SELECT id_cargo FROM cargo WHERE nombre = 'Piloto'
+            )
         WHERE 
             v.id_vuelo = codigo_vuelo
         GROUP BY 
-            v.id_vuelo, av.modelo, a.clase, e.nombres, e.apellidos;
-    END IF;
-END
+            v.id_vuelo, av.modelo, a.clase, e.nombres, e.apellidos
+    ) LOOP
+       
+        DBMS_OUTPUT.PUT_LINE(
+            RPAD(vuelo_rec.codigo_vuelo, 13) || ' | ' ||
+            RPAD(vuelo_rec.modelo_avion, 15) || ' | ' ||
+            RPAD(vuelo_rec.asientos_ocupados, 17) || ' | ' ||
+            RPAD(vuelo_rec.asientos_disponibles, 20) || ' | ' ||
+            RPAD(vuelo_rec.clase, 8) || ' | ' ||
+            RPAD(vuelo_rec.piloto, 20) || ' | ' ||
+            vuelo_rec.monto_ganado
+        );
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('--------------------------------------------------------------------------');
+
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+END;
 
 ----------------------------------------------------
 4. Consultar Rutas
 ----------------------------------------------------
-CREATE PROCEDURE ConsultarRutas()
+CREATE OR REPLACE PROCEDURE ConsultarRutas IS
 BEGIN
-    SELECT 
-        r.id_ruta AS "Id Ruta",
-        origen.nombre AS "Origen",
-        destino.nombre AS "Destino",
-        COUNT(v.id_vuelo) AS "Total de Vuelos"
-    FROM 
-        ruta r
-    JOIN 
-        aeropuerto origen ON r.origen = origen.id_aeropuerto
-    JOIN 
-        aeropuerto destino ON r.destino = destino.id_aeropuerto
-    JOIN 
-        vuelo v ON v.ruta_id_ruta = r.id_ruta
-    GROUP BY 
-        r.id_ruta, origen.nombre, destino.nombre
-    ORDER BY 
-        "Total de Vuelos" DESC
-    FETCH FIRST 5 ROWS ONLY;
-END
+    -- Encabezado
+    DBMS_OUTPUT.PUT_LINE('--------------------------------------------------------');
+    DBMS_OUTPUT.PUT_LINE('ID Ruta | Origen               | Destino              | Total de Vuelos');
+    DBMS_OUTPUT.PUT_LINE('--------------------------------------------------------');
+
+    FOR ruta_rec IN (
+        SELECT 
+            r.id_ruta AS id_ruta,
+            origen.nombre AS origen,
+            destino.nombre AS destino,
+            COUNT(v.id_vuelo) AS total_vuelos
+        FROM 
+            ruta r
+        JOIN 
+            aeropuerto origen ON r.origen = origen.id_aeropuerto
+        JOIN 
+            aeropuerto destino ON r.destino = destino.id_aeropuerto
+        JOIN 
+            vuelo v ON v.ruta_id_ruta = r.id_ruta
+        GROUP BY 
+            r.id_ruta, origen.nombre, destino.nombre
+        ORDER BY 
+            total_vuelos DESC
+        FETCH FIRST 5 ROWS ONLY
+    ) LOOP
+        
+        DBMS_OUTPUT.PUT_LINE(
+            RPAD(ruta_rec.id_ruta, 8) || ' | ' ||
+            RPAD(ruta_rec.origen, 20) || ' | ' ||
+            RPAD(ruta_rec.destino, 20) || ' | ' ||
+            ruta_rec.total_vuelos
+        );
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('--------------------------------------------------------');
+
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+END;

@@ -244,7 +244,6 @@ BEGIN
 
     
     IF p_reserva_id_reserva IS NULL OR p_reserva_id_reserva = 0 THEN
-        o
         INSERT INTO pago (id_pago, fecha, metodo) 
         VALUES (pago_seq.NEXTVAL, SYSDATE, 'Ventanilla'); 
         SELECT pago_seq.CURRVAL INTO v_pago_id FROM dual;
