@@ -123,3 +123,15 @@ BEGIN
     RETURN 'OK';
 END;
 
+CREATE OR REPLACE FUNCTION ValidarPasajero(
+    p_numero_pasaporte INTEGER
+) RETURN BOOLEAN IS
+    v_count INTEGER;
+BEGIN
+    SELECT COUNT(*)
+    INTO v_count
+    FROM pasajero
+    WHERE numero_pasaporte = p_numero_pasaporte;
+
+    RETURN v_count > 0;
+END;
