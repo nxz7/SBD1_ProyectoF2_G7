@@ -10,6 +10,9 @@
 
 ---- CREAR SECUENCIAS
 
+ALTER TABLE terminal 
+ADD nombre_terminal VARCHAR2(10);
+
 -- Secuencia para la tabla terminal
 CREATE SEQUENCE terminal_seq
 START WITH 1
@@ -26,7 +29,7 @@ NOCACHE;
 
 CREATE OR REPLACE PROCEDURE registrar_puertas_embarque (
     p_codigo_iata    IN VARCHAR2,
-    p_terminal       IN VARCHAR2, -- Se recibe como VARCHAR2
+    p_terminal       IN VARCHAR2, -- Se recibe como VARCHAR2 para el nombre de la terminal
     p_puertas        IN VARCHAR2  -- Lista de puertas separadas por comas
 )
 IS
@@ -52,19 +55,19 @@ BEGIN
         INTO v_id_terminal
         FROM terminal
         WHERE aeropuerto_id_aeropuerto = v_id_aeropuerto
-          AND id_terminal = TO_NUMBER(p_terminal); -- Convertir p_terminal a número
+          AND nombre_terminal = p_terminal; -- Comparación usando nombre_terminal
     EXCEPTION
         -- Si no existe, la creamos
         WHEN NO_DATA_FOUND THEN
-            INSERT INTO terminal (id_terminal, aeropuerto_id_aeropuerto)
-            VALUES (terminal_seq.NEXTVAL, v_id_aeropuerto);
+            INSERT INTO terminal (id_terminal, aeropuerto_id_aeropuerto, nombre_terminal)
+            VALUES (terminal_seq.NEXTVAL, v_id_aeropuerto, p_terminal);
             
             -- Obtener el id de la terminal recién creada
             SELECT id_terminal
             INTO v_id_terminal
             FROM terminal
             WHERE aeropuerto_id_aeropuerto = v_id_aeropuerto
-              AND id_terminal = (SELECT MAX(id_terminal) FROM terminal WHERE aeropuerto_id_aeropuerto = v_id_aeropuerto);
+              AND nombre_terminal = p_terminal;
     END;
 
     -- Convertir la lista de puertas a un array
@@ -77,13 +80,12 @@ BEGIN
     END LOOP;
 
     COMMIT;
-    
 END;
-/
+
 
 --ejemplo
 
-EXEC registrar_puertas_embarque('LAX', '1', 'A1,A2,A3');
+EXEC registrar_puertas_embarque('LAX', 'T1', 'A1,A2,A3');
 
 
 -- 6. Registrar empleados
@@ -112,31 +114,48 @@ ALTER TABLE empleados ADD (
 --- PROCEDIMIENTO
 
 CREATE OR REPLACE PROCEDURE registrar_empleado(
-    p_cod_empleado  IN INTEGER,
-    p_nombres       IN VARCHAR2,
-    p_apellidos     IN VARCHAR2,
-    p_correo        IN VARCHAR2,
-    p_telefono      IN INTEGER,
-    p_direccion     IN VARCHAR2,
-    p_cargo         IN INTEGER,
-    p_nacimiento    IN DATE,
-    p_id_aerolinea  IN INTEGER
+    p_cod_empleado    IN INTEGER,
+    p_nombres         IN VARCHAR2,
+    p_apellidos       IN VARCHAR2,
+    p_correo          IN VARCHAR2,
+    p_telefono        IN INTEGER,
+    p_direccion       IN VARCHAR2,
+    p_cargo           IN INTEGER,
+    p_nacimiento      IN VARCHAR2, -- Cambiado a VARCHAR2 para admitir cadenas
+    p_id_aerolinea    IN INTEGER
 )
 IS
-    v_id_cargo       cargo.id_cargo%TYPE;
-    v_id_aerolinea   aerolinea.id_aerolinea%TYPE;
+    v_id_cargo         cargo.id_cargo%TYPE;
+    v_id_aerolinea     aerolinea.id_aerolinea%TYPE;
     v_fecha_contratacion DATE := SYSDATE; -- Fecha de contratación automática
-    
+    v_nacimiento_date  DATE;
 
     invalid_nombre EXCEPTION;
     invalid_apellido EXCEPTION;
     invalid_correo EXCEPTION;
     invalid_cargo EXCEPTION;
     invalid_aerolinea EXCEPTION;
+    invalid_date EXCEPTION;
+    invalid_telefono EXCEPTION;
+    underage_employee EXCEPTION;
+    duplicate_employee EXCEPTION;
 
     -- Patrón regex para validar el formato del correo
     v_email_pattern CONSTANT VARCHAR2(255) := '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$';
 BEGIN
+    -- Verificar si el empleado ya existe
+    BEGIN
+        SELECT 1
+        INTO v_id_cargo
+        FROM empleados
+        WHERE id_empleado = p_cod_empleado;
+        -- Si el SELECT devuelve un resultado, significa que ya existe el empleado
+        RAISE duplicate_employee;
+    EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+            NULL; -- No existe el empleado, se puede continuar
+    END;
+
     -- Validar que el campo nombres contenga solo letras
     IF NOT REGEXP_LIKE(p_nombres, '^[A-Za-z ]+$') THEN
         RAISE invalid_nombre;
@@ -150,6 +169,11 @@ BEGIN
     -- Validar el formato del correo electrónico
     IF NOT REGEXP_LIKE(p_correo, v_email_pattern) THEN
         RAISE invalid_correo;
+    END IF;
+
+    -- Validar que el teléfono sea positivo
+    IF p_telefono <= 0 THEN
+        RAISE invalid_telefono;
     END IF;
 
     -- Verificar que el cargo exista
@@ -174,6 +198,19 @@ BEGIN
             RAISE invalid_aerolinea;
     END;
 
+    -- Intentar convertir p_nacimiento a DATE
+    BEGIN
+        v_nacimiento_date := TO_DATE(p_nacimiento, 'YYYY-MM-DD');
+    EXCEPTION
+        WHEN OTHERS THEN
+            RAISE invalid_date;
+    END;
+
+    -- Validar que el empleado tenga al menos 18 años
+    IF v_nacimiento_date > ADD_MONTHS(SYSDATE, -18 * 12) THEN
+        RAISE underage_employee;
+    END IF;
+
     -- Insertar el nuevo empleado, incluyendo la fecha de contratación
     INSERT INTO empleados (
         id_empleado, nombres, apellidos, correo, telefono, direccion, 
@@ -181,13 +218,15 @@ BEGIN
     ) 
     VALUES (
         p_cod_empleado, p_nombres, p_apellidos, p_correo, p_telefono, p_direccion, 
-        p_nacimiento, p_id_aerolinea, p_cargo, v_fecha_contratacion
+        v_nacimiento_date, p_id_aerolinea, p_cargo, v_fecha_contratacion
     );
 
     COMMIT;
 
 -- Manejo de excepciones personalizadas
 EXCEPTION
+    WHEN duplicate_employee THEN
+        RAISE_APPLICATION_ERROR(-20010, 'El empleado con el ID ' || p_cod_empleado || ' ya existe.');
     WHEN invalid_nombre THEN
         RAISE_APPLICATION_ERROR(-20001, 'El campo de nombres solo debe contener letras.');
     WHEN invalid_apellido THEN
@@ -198,9 +237,16 @@ EXCEPTION
         RAISE_APPLICATION_ERROR(-20004, 'El cargo con id ' || p_cargo || ' no existe.');
     WHEN invalid_aerolinea THEN
         RAISE_APPLICATION_ERROR(-20005, 'La aerolínea con id ' || p_id_aerolinea || ' no existe.');
+    WHEN invalid_date THEN
+        RAISE_APPLICATION_ERROR(-20006, 'La fecha de nacimiento debe estar en formato YYYY-MM-DD.');
+    WHEN invalid_telefono THEN
+        RAISE_APPLICATION_ERROR(-20007, 'El número de teléfono debe ser positivo.');
+    WHEN underage_employee THEN
+        RAISE_APPLICATION_ERROR(-20008, 'El empleado debe tener al menos 18 años.');
     WHEN OTHERS THEN
-        RAISE_APPLICATION_ERROR(-20006, 'Ha ocurrido un error inesperado: ' || SQLERRM);
+        RAISE_APPLICATION_ERROR(-20009, 'Ha ocurrido un error inesperado: ' || SQLERRM);
 END registrar_empleado;
+
 /
 
 --- EJEMPLO
@@ -370,31 +416,47 @@ CREATE OR REPLACE PROCEDURE cancelar_reservacion (
 )
 IS
     v_reserva_existente INTEGER;
+    v_reserva_cancelada INTEGER;
 BEGIN
-    --Verificar si la reserva existe
+    -- Verificar si la reserva existe
     SELECT COUNT(*)
     INTO v_reserva_existente
     FROM reserva
     WHERE id_reserva = p_codigo_reserva;
-    
+
     IF v_reserva_existente = 0 THEN
         RAISE_APPLICATION_ERROR(-20001, 'No existen reservas con el ID especificado.');
     END IF;
 
-    -- Se actualiza el estado de los boletos asociados a la reserva
+    -- Verificar si los boletos ya están en estado 'Cancelado'
+    SELECT COUNT(*) INTO v_reserva_cancelada
+    FROM boleto
+    WHERE reserva_id_reserva = p_codigo_reserva
+      AND estado <> 'Cancelado';
+
+    IF v_reserva_cancelada = 0 THEN
+        RAISE_APPLICATION_ERROR(-20003, 'La reserva ya está cancelada.');
+    END IF;
+
+    -- Actualizar el estado de los boletos asociados a la reserva y liberar asientos
     UPDATE boleto
-    SET estado = 'Cancelado'
+    SET estado = 'Cancelado',
+        asientos_id_asiento = NULL  -- Liberar el asiento al ponerlo en NULL
     WHERE reserva_id_reserva = p_codigo_reserva;
-    
+
     COMMIT;
-    
+
     DBMS_OUTPUT.PUT_LINE('La reservación y los boletos asociados han sido cancelados exitosamente.');
 
 EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        ROLLBACK;
+        RAISE_APPLICATION_ERROR(-20004, 'No se encontró la reserva o los boletos.');
     WHEN OTHERS THEN
         ROLLBACK;
         RAISE_APPLICATION_ERROR(-20002, 'Error al cancelar la reservación: ' || SQLERRM);
 END;
+
 
 
 -- REPORTES

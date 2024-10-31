@@ -1,5 +1,5 @@
 INSERT INTO pais (id_pais, nombre)
-VALUES (1, 'Estados Unidos');
+VALUES (1, 'United States');
 
 INSERT INTO ciudad (id_ciudad, nombre, pais_id_pais)
 VALUES (1, 'Los Angeles', 1);
