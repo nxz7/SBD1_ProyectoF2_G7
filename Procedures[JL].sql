@@ -86,17 +86,17 @@ BEGIN
         
     FOR i IN 1..p_asientos_primera LOOP
         INSERT INTO asientos (id_asiento, numero_asiento, clase, avion_id_avion)
-        VALUES (asiento_seq.NEXTVAL, i, 'Primera', (SELECT id_avion FROM avion WHERE matricula = p_matricula));
+        VALUES (asiento_seq.NEXTVAL, i, 'Primera Clase', (SELECT id_avion FROM avion WHERE matricula = p_matricula));
         END LOOP;
 
     FOR i IN 1..p_asientos_ejecutiva LOOP
         INSERT INTO asientos (id_asiento, numero_asiento, clase, avion_id_avion)
-        VALUES (asiento_seq.NEXTVAL, i + p_asientos_primera, 'Ejecutiva', (SELECT id_avion FROM avion WHERE matricula = p_matricula));
+        VALUES (asiento_seq.NEXTVAL, i + p_asientos_primera, 'Clase Ejecutiva', (SELECT id_avion FROM avion WHERE matricula = p_matricula));
         END LOOP;
 
     FOR i IN 1..p_asientos_economica LOOP
         INSERT INTO asientos (id_asiento, numero_asiento, clase, avion_id_avion)
-        VALUES (asiento_seq.NEXTVAL, i + p_asientos_primera + p_asientos_ejecutiva,'Economica',(SELECT id_avion FROM avion WHERE matricula = p_matricula));
+        VALUES (asiento_seq.NEXTVAL, i + p_asientos_primera + p_asientos_ejecutiva,'Clase Económica',(SELECT id_avion FROM avion WHERE matricula = p_matricula));
         END LOOP;
     DBMS_OUTPUT.PUT_LINE('Avion registrado exitosamente.');
     COMMIT;

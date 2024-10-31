@@ -6,18 +6,18 @@ CREATE OR REPLACE PROCEDURE ConsultarVuelo (codigo_vuelo IN NUMBER) IS
 BEGIN
     -- Encabezado
     DBMS_OUTPUT.PUT_LINE('--------------------------------------------------------------------------');
-    DBMS_OUTPUT.PUT_LINE('Código Vuelo | Modelo Avión     | Asientos Ocupados | Asientos Disponibles | Clase   | Piloto               | Monto Ganado');
+    DBMS_OUTPUT.PUT_LINE('Código Vuelo | Modelo del Avión | Asientos Ocupados | Asientos Disponibles | Clase   | Piloto               | Monto Ganado');
     DBMS_OUTPUT.PUT_LINE('--------------------------------------------------------------------------');
 
     FOR vuelo_rec IN (
         SELECT 
-            v.id_vuelo AS codigo_vuelo,
-            av.modelo AS modelo_avion,
-            COUNT(CASE WHEN b.id_boleto IS NOT NULL THEN 1 END) AS asientos_ocupados,
-            COUNT(CASE WHEN b.id_boleto IS NULL THEN 1 END) AS asientos_disponibles,
-            a.clase AS clase,
-            e.nombres || ' ' || e.apellidos AS piloto,
-            SUM(t.precio) AS monto_ganado
+            v.id_vuelo AS "Código Vuelo",
+            av.modelo AS "Modelo del Avión",
+            COUNT(CASE WHEN b.id_boleto IS NOT NULL THEN 1 END) AS "Asientos Ocupados",
+            COUNT(CASE WHEN b.id_boleto IS NULL THEN 1 END) AS "Asientos Disponibles",
+            a.clase AS "Clase",
+            e.nombres || ' ' || e.apellidos AS "Piloto",
+            SUM(CASE WHEN b.id_boleto IS NOT NULL THEN t.precio ELSE 0 END) AS "Monto Ganado"
         FROM 
             vuelo v
         JOIN 
@@ -41,13 +41,13 @@ BEGIN
     ) LOOP
        
         DBMS_OUTPUT.PUT_LINE(
-            RPAD(vuelo_rec.codigo_vuelo, 13) || ' | ' ||
-            RPAD(vuelo_rec.modelo_avion, 15) || ' | ' ||
-            RPAD(vuelo_rec.asientos_ocupados, 17) || ' | ' ||
-            RPAD(vuelo_rec.asientos_disponibles, 20) || ' | ' ||
-            RPAD(vuelo_rec.clase, 8) || ' | ' ||
-            RPAD(vuelo_rec.piloto, 20) || ' | ' ||
-            vuelo_rec.monto_ganado
+            RPAD(vuelo_rec."Código Vuelo", 13) || ' | ' ||
+            RPAD(vuelo_rec."Modelo del Avión", 15) || ' | ' ||
+            RPAD(vuelo_rec."Asientos Ocupados", 17) || ' | ' ||
+            RPAD(vuelo_rec."Asientos Disponibles", 20) || ' | ' ||
+            RPAD(vuelo_rec."Clase", 8) || ' | ' ||
+            RPAD(vuelo_rec."Piloto", 20) || ' | ' ||
+            vuelo_rec."Monto Ganado"
         );
     END LOOP;
 
@@ -57,6 +57,7 @@ EXCEPTION
     WHEN OTHERS THEN
         DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
 END;
+
 
 ----------------------------------------------------
 4. Consultar Rutas
